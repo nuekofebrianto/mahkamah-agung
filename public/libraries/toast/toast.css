@@ -1,0 +1,48 @@
+  .card.toastx{
+    height: auto !important;
+    min-height: 20px;
+  }
+  .card.toastx:hover{
+    cursor: pointer;
+  }
+  .toastx {
+    text-align: left;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 400px !important;
+    top: 0px;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);
+  }
+
+  .toastx--success:before {
+    background-color: var(--success) !important;
+  }
+  .toastx--danger:before {
+    background-color: var(--danger) !important;
+  }
+  .toastx--primary:before {
+    background-color: var(--primary) !important;
+  }
+
+  .toastx--warning:before {
+    background-color: var(--warning) !important;
+  }
+
+  .toastx>.row>.col-md-3>i{
+    font-size: 30px;
+    position: relative;
+    top: 0px;
+    left: 35px;
+  }
+
+  .toastx:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }

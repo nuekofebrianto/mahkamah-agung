@@ -1,0 +1,219 @@
+.undisplay {
+    display: none;
+}
+
+.loader {
+    position: fixed !important;
+    z-index: 2000 !important;
+    top: 0vh;
+    padding-top: 50vh;
+    height: 100%;
+    width: 100% !important;
+    background: #ffffff70;
+}
+
+.breadcrumb-item>a {
+    font-weight: 100 !important;
+}
+
+.table {
+    color: #1d2225 !important;
+}
+
+.p-r-2 {
+    padding-right: 20px !important;
+}
+
+.m-r-2 {
+    margin-right: 20px !important;
+}
+
+.btn-mint {
+    background-color: #29b2a6;
+    border-color: #26a69a !important;
+    color: #fff;
+}
+
+.text-mint {
+    color: #29b2a6;
+}
+
+.btn-mint:hover {
+    color: #fff;
+    box-shadow: 0 .1rem .5rem #29b2a6, 0 .25rem 1rem rgba(55, 60, 67, .2)
+}
+
+.rowId {
+    display: none;
+    position: fixed;
+    min-width: 200px;
+    padding: 10px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 0.5rem 2rem 0 rgb(33 48 85 / 31%);
+    margin: 0 !important;
+    opacity: 1;
+    pointer-events: visible;
+    touch-action: auto;
+    transition-timing-function: ease;
+    transition: visibility .35s, margin .35s ease-in-out, opacity .35s, transform 0s;
+    visibility: visible;
+    border-radius: 5px;
+}
+
+#datatable>tbody>tr>td {
+    cursor: pointer;
+}
+
+th.checkbox>.magic-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+    background-color: red;
+}
+
+td.checkbox>.magic-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.control-label {
+    color: #1d2225;
+}
+
+.toast-custom {
+    text-align: left;
+    border-radius: 15px;
+    width: 400px !important;
+    top: 0px;
+    position: relative;
+    /* background: transparent; */
+}
+
+
+.toast-success {
+    box-shadow: 0 4px 6px -1px #03AC0E;
+    background: none;
+    border-radius: 15px;
+}
+
+.toast-icon-success {
+    text-align: center;
+    color: #03AC0E;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.toast-body-success {
+    text-align: center;
+    color: #03AC0E;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.toast-danger {
+    box-shadow: 0 4px 6px -1px #df5645;
+    background: none;
+    border-radius: 15px;
+}
+
+.toast-icon-danger {
+    text-align: center;
+    color: #df5645;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.toast-body-danger {
+    text-align: center;
+    color: #df5645;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.toast-warning {
+    box-shadow: 0 4px 6px -1px #fa9f1b;
+    background: none;
+    border-radius: 15px;
+}
+
+.toast-icon-warning {
+    text-align: center;
+    color: #fa9f1b;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.toast-body-warning {
+    text-align: center;
+    color: #fa9f1b;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+label>input:focus {
+    outline: none !important;
+}
+
+#datatable {
+    width: 100% !important;
+}
+
+.select2-is-invalid{
+    border-color: red !important;
+}
+
+span.input-group-append{
+    display: none;
+}
+
+.datepicker{
+    border-top-right-radius: 0.4375rem !important;
+    border-bottom-right-radius: 0.4375rem !important;
+}
+
+.select2-container{
+    width: 100% !important;
+}
+
+.form-control:active,
+.form-control:focus,
+.form-control{
+    color: black;
+}
+
+.va-m{
+    vertical-align: middle;
+}
+
+.dd-list:active>.dd-placeholder,
+.dd-list:focus>.dd-placeholder
+{
+    background: aliceblue !important;
+    color:red !important;
+    content:"x";
+    z-index: 10000;
+}
+
+hr.dd-handle{
+    border:red;
+    height: 30px;
+}
+
+
+li.dd-item>.dd-icon{
+    position: absolute;
+    right: 45px;
+    z-index: 10;
+    top: 3px;
+}
+
+li.dd-item>.dd-remove{
+    position: absolute;
+    right: 5px;
+    z-index: 10;
+    top: 3px;
+}
