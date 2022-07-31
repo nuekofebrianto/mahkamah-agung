@@ -66,7 +66,7 @@ class LoginController extends Controller
 		// $store = User::create($data);
 
 		$store = User::create([
-			'role_id' => $request['role_id'],
+			'role_id' =>4,
 			'username' => $request['username'],
 			'email' => $request['email'],
 			'password' => Hash::make($request['password']),

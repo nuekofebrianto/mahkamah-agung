@@ -86,6 +86,7 @@ class LayananController extends Controller
 		$postData = $request->all();
 		$user_id = Auth::id();
 		$postData["updated_by"] = $user_id;
+		$postData["status"] = 'ditangani';
 		$store = Layanan::where("id", $request->id)->update($postData);
 
 		return response()->json($request->id);
