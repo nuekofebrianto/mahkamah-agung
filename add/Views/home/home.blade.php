@@ -236,12 +236,7 @@
                 <div class="col-md-6 offset-3">
                     <input type="text" class="form-control undisplay" store="id">
                     <div class="row">
-                        <div class="col-md-12 m-b-2">
-                            <div class="form-group">
-                                <label class="control-label">Kode error</label>
-                                <input type="text" class="form-control" store="kode_error">
-                            </div>
-                        </div>
+                       
                         <div class="col-md-12 m-b-2">
                             <div class="form-group">
                                 <label class="control-label">Aplikasi</label>
@@ -389,10 +384,7 @@
                 $('[store_file]').removeClass('is-invalid')
 
                 ada_error = 0
-                if (kode_error == '') {
-                    $('[store="kode_error"]').addClass('is-invalid')
-                    ada_error = 1
-                }
+              
                 if (aplikasi_id == '') {
                     $('[store="aplikasi_id"]').addClass('is-invalid')
                     ada_error = 1
@@ -423,7 +415,6 @@
                     url: 'layanan',
                     method: 'POST',
                     data: {
-                        kode_error: kode_error,
                         aplikasi_id: aplikasi_id,
                         penjelasan_insiden: penjelasan_insiden,
                         satker_organisasi: satker_organisasi,

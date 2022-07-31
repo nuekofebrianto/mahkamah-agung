@@ -124,22 +124,24 @@
 
                 openFormUbah()
                 $.each(response, function(i, v) {
-                    if(i == 'aplikasi_id'){
+                    if (i == 'aplikasi_id') {
                         $('[aplikasi_id]').val(response.aplikasi['nama'])
                         $('[store="aplikasi_id"]').val(response['aplikasi_id'])
-                    }
-                    else if ($('[store="' + i + '"]').hasClass('select2')) {
+                    } else if ($('[store="' + i + '"]').hasClass('select2')) {
                         $('[store="' + i + '"]').val(v).trigger('change');
                     } else {
                         $('[store="' + i + '"]').val(v)
                     }
                 })
 
-                $('[store_file="bukti_insiden"]').attr('src','/upload/bukti_insiden/'+response['id']+'.jpg')
-                $('[store_file="bukti_insiden"]').parent().attr('href','/upload/bukti_insiden/'+response['id']+'.jpg')
+                $('[store_file="bukti_insiden"]').attr('src', '/upload/bukti_insiden/' + response['id'] +
+                    '.jpg')
+                $('[store_file="bukti_insiden"]').parent().attr('href', '/upload/bukti_insiden/' + response[
+                    'id'] + '.jpg')
 
-                $('#bukti_perbaikan').attr('src','/upload/bukti_perbaikan/'+response['id']+'.jpg')
-                $('#bukti_perbaikan').parent().attr('href','/upload/bukti_perbaikan/'+response['id']+'.jpg')
+                $('#bukti_perbaikan').attr('src', '/upload/bukti_perbaikan/' + response['id'] + '.jpg')
+                $('#bukti_perbaikan').parent().attr('href', '/upload/bukti_perbaikan/' + response['id'] +
+                    '.jpg')
 
             }
         })
@@ -150,6 +152,14 @@
         $('.loader').show()
 
         postData = {}
+
+        $('[store="kode_error"]').removeClass('is-invalid')
+
+        if ($('[store="kode_error"]').val() == '') {
+            $('[store="kode_error"]').addClass('is-invalid')
+            notif('harap isi kode error !','danger')
+            return false;
+        }
 
         $('[store]').each(function(i, v) {
             post = $(v).attr('store')

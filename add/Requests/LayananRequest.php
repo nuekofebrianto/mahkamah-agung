@@ -16,7 +16,6 @@ class LayananRequest extends FormRequest
     {
         if ($this->method() == "POST") {
             return [
-                'kode_error' => 'String|required|unique:layanan,kode_error',
                 'aplikasi_id' => 'required',
                 'penjelasan_insiden' => 'String|required',
                 'satker_organisasi' => 'String|required',
@@ -24,7 +23,6 @@ class LayananRequest extends FormRequest
             ];
         } else {
             return [
-                'kode_error' => 'String|required|unique:layanan,kode_error,' . $this->request->get("id"),
                 'aplikasi_id' => 'required',
                 'penjelasan_insiden' => 'String|required',
                 'satker_organisasi' => 'String|required',
@@ -35,9 +33,6 @@ class LayananRequest extends FormRequest
     public function messages()
     {
         return [
-            "kode_error.String" => "kode_error harus berupa text !",
-            "kode_error.required" => "kode_error tidak boleh kosong !",
-            "kode_error.unique" => "kode_error sudah digunakan !",
             "aplikasi_id.Integer" => "aplikasi harus berupa angka !",
             "aplikasi.required" => "aplikasi tidak boleh kosong !",
             "penjelasan_insiden.String" => "penjelasan_insiden harus berupa text !",
