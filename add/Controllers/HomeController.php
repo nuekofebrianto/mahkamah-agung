@@ -56,9 +56,10 @@ class HomeController extends Controller
       ->orderBy('nama', 'asc')
       ->get();
 
+    $data = Layanan::where('created_by', $user_id)->whereIn('status', ['diterima', 'diproses', 'ditangani'])->count();
     $pengajuan = Layanan::where('created_by', $user_id)->whereIn('status', ['diterima', 'diproses', 'ditangani'])->first();
 
-    return view('home.home', compact('basicInfo', 'aplikasi', 'tingkat_prioritas', 'kategori_perbaikan', 'pengajuan'));
+    return view('home.home', compact('basicInfo', 'aplikasi', 'tingkat_prioritas', 'kategori_perbaikan', 'pengajuan','data'));
   }
 
   public function homeAdmin()

@@ -58,6 +58,7 @@
                 </div>
             </div>
 
+            @if($data > 0)
             <div class="row lihat-pengaduan undisplay fs-5">
                 <div class="col-md-8 offset-2">
                     <div class="row ">
@@ -164,6 +165,7 @@
                     </div>
                 </div>
             </div>
+            @endif
 
         </div>
         <hr>
