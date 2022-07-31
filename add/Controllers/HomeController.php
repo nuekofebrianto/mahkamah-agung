@@ -20,7 +20,7 @@ class HomeController extends Controller
       $basicInfo = getBasicInfo('/home');
       $userLevel = $basicInfo['infoUser']->id;
 
-      if ($userLevel == '3') {
+      if ($userLevel == '4') {
         return redirect(route('homeadmin'));
       } else if ($userLevel == '5') {
         return redirect(route('homemanajer'));
@@ -39,7 +39,7 @@ class HomeController extends Controller
     $basicInfo = getBasicInfo('/home');
     $user_id =  Auth::id();
     $userLevel = $basicInfo['infoUser']->id;
-    if ($userLevel == '3') {
+    if ($userLevel == '4') {
       return redirect(route('homeadmin'));
     }
     if ($userLevel == '5') {
