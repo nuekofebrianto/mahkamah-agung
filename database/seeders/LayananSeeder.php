@@ -17,6 +17,14 @@
         "nama_kecil" => "layanan",
         "nama_besar" => "Layanan",
       ]);
+
+      DB::table('menu')->insert([
+        'url' => '/laporan',
+        'nama' => 'Laporan',
+        'tipe' => 'master',
+        'nama_kecil' => 'laporan',
+        'nama_besar' => 'Laporan',
+      ]);
   
       DB::table("menu_migration")->insert([
         "menu_id" => $id,
