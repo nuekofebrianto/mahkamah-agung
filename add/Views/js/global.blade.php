@@ -13,7 +13,6 @@
 
         $('.loader').hide()
 
-        console.log($('.mainnav__categoriy').find('[url="/test_2"]').parent().html())
 
     });
 

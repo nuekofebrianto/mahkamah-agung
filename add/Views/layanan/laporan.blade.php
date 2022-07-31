@@ -3,12 +3,12 @@
     <div class="card h-100 card-index">
         <div class="card-header d-flex align-items-center border-0">
             <div class="me-auto">
-                <h3 class="h4 m-0">List</h3>
+                <h3 class="h4 m-0">Laporan</h3>
             </div>
             <div class="toolbar-end">
-                <button type="button" class="btn btn-primary btn-xs" id="dataBaru" onclick="openFormBaru()">
+                {{-- <button type="button" class="btn btn-primary btn-xs" id="dataBaru" onclick="openFormBaru()">
                     data baru
-                </button>
+                </button> --}}
             </div>
         </div>
 
@@ -19,10 +19,16 @@
                         <thead>
                             <tr>
                                 <th width="40">no</th>
-                                <td>Kode error</td>
-                                <td>Penjelasan</td>
-                                <td>Penyelesaian</td>
                                 <td>Status</td>
+                                <td>No Tiket</td>
+                                <td>Kode error</td>
+                                <td>Aplikasi</td>
+                                <td>Penjelasan insiden</td>
+                                <td>Satker organisasi</td>
+                                <td>Tingkat prioritas</td>
+                                <td>Kategori perbaikan</td>
+                                <td>Perbaikan</td>
+                                <td>Alasan</td>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -31,10 +37,10 @@
             </div>
         </div>
     </div>
-    @include('kode_error.form')
+    @include('layanan.form')
 @endsection
 @section('js')
-    @include('kode_error.js_dt')
-    @include('kode_error.js_crud')
-    @include('kode_error.js_custom')
+    @include('layanan.js_dt')
+    @include('layanan.js_crud')
+    @include('layanan.js_custom_laporan')
 @endsection

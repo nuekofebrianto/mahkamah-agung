@@ -45,10 +45,23 @@ class MenuMasterController extends Controller
 
     public function store(Request $request)
     {
-       
-        $response = ['mangga mamam'];
+        $akses      = createAkses($request->all());
+        $migration  = createMigration($request->all());
+        $seeder     = createSeeder($request->all(), $migration);
+        $model      = createModel($request->all());
+        $validasi   = createValidasi($request->all());
+        $controller = createController($request->all());
+        $view       = createView($request->all());
+        $route      = createRoute($request->all());
+        $sidebar    = createSidebar($request->all());
+
+        $response = [$akses,$migration,$seeder,$model,$validasi,$controller,$view,$route,$sidebar];
+        // $response = [$migration,$seeder];
 
         return response()->json($response);
+        // $response = ['mangga mamam'];
+
+        // return response()->json($response);
     }
 
     public function destroy(Request $request)

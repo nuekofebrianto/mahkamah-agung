@@ -32,10 +32,6 @@
             post = $(v).attr('store')
             data = $(v).val()
 
-            if ($(v).hasClass('datepicker')) {
-                data = moment(data).format('yyyy-MM-DD');
-            }
-
             postData[post] = data
         })
 
@@ -72,12 +68,6 @@
 
         let ids = [];
         ids.push($(ini).attr('data-id'));
-        console.log($(ini).attr('status'))
-        
-        if ($(ini).attr('status') != 'pending'){
-            notif('tidak bisa hapus karena sedang dalam proses !','danger')
-            return false;
-        }
 
         Swal.fire({
             title: 'Hapus Data',
@@ -134,12 +124,23 @@
 
                 openFormUbah()
                 $.each(response, function(i, v) {
-                    if ($('[store="' + i + '"]').hasClass('select2')) {
+                    if(i == 'aplikasi_id'){
+                        $('[aplikasi_id]').val(response.aplikasi['nama'])
+                        $('[store="aplikasi_id"]').val(response['aplikasi_id'])
+                    }
+                    else if ($('[store="' + i + '"]').hasClass('select2')) {
                         $('[store="' + i + '"]').val(v).trigger('change');
                     } else {
                         $('[store="' + i + '"]').val(v)
                     }
                 })
+
+                $('[store_file="bukti_insiden"]').attr('src','/upload/bukti_insiden/'+response['id']+'.jpg')
+                $('[store_file="bukti_insiden"]').parent().attr('href','/upload/bukti_insiden/'+response['id']+'.jpg')
+
+                $('#bukti_perbaikan').attr('src','/upload/bukti_perbaikan/'+response['id']+'.jpg')
+                $('#bukti_perbaikan').parent().attr('href','/upload/bukti_perbaikan/'+response['id']+'.jpg')
+
             }
         })
 
@@ -165,10 +166,12 @@
             method: 'PATCH',
             data: postData,
             success: function(response) {
-
+                $('[store_file="id"').val(response)
+                $('#formUploadBuktiInsiden').submit()
                 console.log(response)
 
                 notif('Berhasil ubah data', 'success')
+
                 reload(url + '/list')
                 backToIndex()
                 clearForm()

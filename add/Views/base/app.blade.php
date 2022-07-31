@@ -7,7 +7,7 @@
     <meta name="description" content="When active, the navigation will slide over the top of the content.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Larabon</title>
+    <title>Mahkamah Agung</title>
 
     {{-- CSS --}}
 

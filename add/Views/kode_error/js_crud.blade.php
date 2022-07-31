@@ -32,8 +32,14 @@
             post = $(v).attr('store')
             data = $(v).val()
 
+            if ($(v).hasClass('datepicker')){
+                data = moment(data).format("yyyy-mm-dd")
+                console.log(data)
+            }
             postData[post] = data
         })
+
+        postData['status'] = 'pending'
 
         $.ajax({
             headers: {
@@ -49,6 +55,17 @@
                 reload(url + '/list')
                 backToIndex()
                 clearForm()
+            },
+            error: function(response) {
+                message = ''
+                $('[store]').removeClass('is-invalid')
+                $.each(response.responseJSON.errors, function(i, v) {
+                    message = v[0]
+                    $('[store="' + i + '"]').addClass('is-invalid')
+                })
+                notif(message, 'danger')
+                $('.loader').hide()
+
             }
         })
     }
@@ -89,6 +106,7 @@
                         reload(url + '/list')
 
                     }
+
                 })
                 $('.loader').hide()
             }

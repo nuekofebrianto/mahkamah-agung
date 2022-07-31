@@ -10,6 +10,9 @@ Route::post('/register', 'LoginController@register')->name('register');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@home')->name('home');
+    Route::get('/homeadmin', 'HomeController@homeAdmin')->name('homeadmin');
+    Route::get('/homemanajer', 'HomeController@homeManajer')->name('homemanajer');
+
     Route::get('/sidebar', 'HomeController@sidebar');
     Route::post('/updatesidebar', 'HomeController@updateSidebar');
 
@@ -35,41 +38,27 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/carikodeerror', 'HomeController@carikodeerror');
 
 
-
-
-
-
-
-Route::resource('/aplikasi', 'AplikasiController');
+    Route::resource('/aplikasi', 'AplikasiController');
     Route::post('/aplikasi/list', 'AplikasiController@list');
     Route::post('/aplikasi/getdata', 'AplikasiController@getData');
 
-
-
-
-
-Route::resource('/kode_error', 'KodeErrorController');
-    Route::post('/kode_error/list', 'KodeErrorController@list');
-    Route::post('/kode_error/getdata', 'KodeErrorController@getData');
-
-
-Route::resource('/layanan', 'LayananController');
-    Route::post('/layanan/list', 'LayananController@list');
-    Route::post('/layanan/getdata', 'LayananController@getData');
-
-
-Route::resource('/tingkat_prioritas', 'TingkatPrioritasController');
+    Route::resource('/tingkat_prioritas', 'TingkatPrioritasController');
     Route::post('/tingkat_prioritas/list', 'TingkatPrioritasController@list');
     Route::post('/tingkat_prioritas/getdata', 'TingkatPrioritasController@getData');
 
 
-Route::resource('/kategori_perbaikan', 'KategoriPerbaikanController');
+    Route::resource('/kategori_perbaikan', 'KategoriPerbaikanController');
     Route::post('/kategori_perbaikan/list', 'KategoriPerbaikanController@list');
     Route::post('/kategori_perbaikan/getdata', 'KategoriPerbaikanController@getData');
 
 
-Route::resource('/perbaikan', 'PerbaikanController');
-    Route::post('/perbaikan/list', 'PerbaikanController@list');
-    Route::post('/perbaikan/getdata', 'PerbaikanController@getData');
+    Route::resource('/layanan', 'LayananController');
+    Route::post('/layanan/list', 'LayananController@list');
+    Route::post('/layanan/getdata', 'LayananController@getData');
+    Route::post('/uploadbuktiinsiden', 'LayananController@uploadBuktiInsiden');
+    Route::post('/uploadbuktiperbaikan', 'LayananController@uploadBuktiperbaikan');
+    Route::post('/selesaiinsiden', 'LayananController@selesaiInsiden');
+
+    Route::get('/laporan','LayananController@laporan');
 
 });

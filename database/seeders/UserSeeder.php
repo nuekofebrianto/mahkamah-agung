@@ -23,6 +23,9 @@ class UserSeeder extends Seeder
     DB::table('role')->insert([
       'nama' => 'user',
     ]);
+    DB::table('role')->insert([
+      'nama' => 'manejer insiden',
+    ]);
 
     DB::table('users')->insert([
       'role_id' => '1',

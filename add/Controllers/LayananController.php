@@ -11,8 +11,9 @@ use DataTables;
 use Add\Requests\LayananRequest;
 
 use Add\Models\Layanan;
-use Add\Models\KodeError;
 use Add\Models\Aplikasi;
+use Add\Models\TingkatPrioritas;
+use Add\Models\KategoriPerbaikan;
 
 class LayananController extends Controller
 {
@@ -20,32 +21,52 @@ class LayananController extends Controller
 	public function index()
 	{
 		$basicInfo = getBasicInfo("/layanan");
-		$kode_error = KodeError::where('is_deleted', 0)
-			->orderBy('kode_error', 'asc')
-			->get();
 		$aplikasi = Aplikasi::where('is_deleted', 0)
 			->orderBy('nama', 'asc')
 			->get();
-		return view("layanan.index", compact('basicInfo', 'kode_error', 'aplikasi'));
+		$tingkat_prioritas = TingkatPrioritas::where('is_deleted', 0)
+			->orderBy('nama', 'asc')
+			->get();
+		$kategori_perbaikan = KategoriPerbaikan::where('is_deleted', 0)
+			->orderBy('nama', 'asc')
+			->get();
+		return view("layanan.index", compact('basicInfo', 'aplikasi', 'tingkat_prioritas', 'kategori_perbaikan'));
 	}
 
 	public function list(Request $request)
 	{
-		$basicInfo = getBasicInfo("/layanan");
-		$user_id = $basicInfo['infoUser']->user['id'];
+		$list = Layanan::where("is_deleted", 0)
+			->orderBy("created_at", "desc")
+			->with('aplikasi')
+			->with('tingkat_prioritas')
+			->with('kategori_perbaikan')
+			->get();
+		return DataTables()->of($list)->make(true);
+	}
 
-		if ($basicInfo['infoUser']->id == '4') {
-			$list = Layanan::where("is_deleted", 0)
-				->where('created_by', $user_id)
-				->orderBy("created_at", "desc")
-				->with('aplikasi')
-				->get();
-		} else {
-			$list = Layanan::where("is_deleted", 0)
-				->orderBy("created_at", "desc")
-				->with('aplikasi')
-				->get();
-		}
+	public function laporan()
+	{
+		$basicInfo = getBasicInfo("/layanan");
+		$aplikasi = Aplikasi::where('is_deleted', 0)
+			->orderBy('nama', 'asc')
+			->get();
+		$tingkat_prioritas = TingkatPrioritas::where('is_deleted', 0)
+			->orderBy('nama', 'asc')
+			->get();
+		$kategori_perbaikan = KategoriPerbaikan::where('is_deleted', 0)
+			->orderBy('nama', 'asc')
+			->get();
+		return view("layanan.laporan", compact('basicInfo', 'aplikasi', 'tingkat_prioritas', 'kategori_perbaikan'));
+	}
+
+	public function listLaporan(Request $request)
+	{
+		$list = Layanan::where("is_deleted", 0)
+			->orderBy("created_at", "desc")
+			->with('aplikasi')
+			->with('tingkat_prioritas')
+			->with('kategori_perbaikan')
+			->get();
 		return DataTables()->of($list)->make(true);
 	}
 
@@ -57,14 +78,6 @@ class LayananController extends Controller
 		$postData["created_by"] = $user_id;
 		$store = Layanan::create($postData);
 
-		if ($store){
-			$store2['kode_error'] = $store['kode_error'];
-			$store2['penjelasan'] = $store['penjelasan'];
-			$store2['penyelesaian'] = $store['penyelesaian'];
-			$store2['status'] = $store['pending'];
-			KodeError::create($store2);
-		}
-
 		return response()->json($store);
 	}
 
@@ -75,7 +88,7 @@ class LayananController extends Controller
 		$postData["updated_by"] = $user_id;
 		$store = Layanan::where("id", $request->id)->update($postData);
 
-		return response()->json($store);
+		return response()->json($request->id);
 	}
 
 	public function destroy(Request $request)
@@ -90,9 +103,43 @@ class LayananController extends Controller
 	{
 		$datas = Layanan::where("id", $request->id)
 			->where("is_deleted", 0)
-			->with('kode_error')
 			->with('aplikasi')
+			->with('tingkat_prioritas')
+			->with('kategori_perbaikan')
 			->first();
+		return response()->json($datas);
+	}
+
+	public function uploadBuktiInsiden(Request $request)
+	{
+
+		$public_path = public_path('/upload/bukti_insiden/');
+
+		$request['files']->move($public_path, $request->id . ".jpg");
+
+
+		$fileUploaded = '/upload/bukti_insiden/' . $request->id . '.jpg';
+
+		return response()->json($fileUploaded);
+	}
+
+	public function uploadBuktiPerbaikan(Request $request)
+	{
+
+		$public_path = public_path('/upload/bukti_perbaikan/');
+
+		$request['files']->move($public_path, $request->id . ".jpg");
+
+
+		$fileUploaded = '/upload/bukti_perbaikan/' . $request->id . '.jpg';
+
+		return response()->json($fileUploaded);
+	}
+
+	public function selesaiInsiden(Request $request)
+	{
+		$datas = Layanan::where("id", $request->id)->update(['status'=>'selesai']);
+
 		return response()->json($datas);
 	}
 }

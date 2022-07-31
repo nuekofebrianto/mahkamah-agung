@@ -20,16 +20,16 @@
   
       DB::table("menu_migration")->insert([
         "menu_id" => $id,
-        "nama" => "2022_07_23_100010_create_layanan_table.php",
+        "nama" => "2022_07_30_100012_create_layanan_table.php",
       ]);
 DB::table("menu_kolom")->insert([
             "menu_id" => $id,
-            "tipe" => "relasi",
+            "tipe" => "text",
             "nama" => "kode_error",
-            "default" => "kode_error",
+            "default" => "",
             "coma" => "0",
             "required" => "true",
-            "unique" => "false",
+            "unique" => "true",
             "min" => "0",
             "max" => "0",
           ]);
@@ -46,23 +46,12 @@ DB::table("menu_kolom")->insert([
           ]);
 DB::table("menu_kolom")->insert([
             "menu_id" => $id,
-            "tipe" => "date",
-            "nama" => "tanggal_layanan",
+            "tipe" => "area",
+            "nama" => "penjelasan_insiden",
             "default" => "",
             "coma" => "0",
             "required" => "true",
             "unique" => "false",
-            "min" => "0",
-            "max" => "0",
-          ]);
-DB::table("menu_kolom")->insert([
-            "menu_id" => $id,
-            "tipe" => "text",
-            "nama" => "nomor_antrian",
-            "default" => "",
-            "coma" => "0",
-            "required" => "true",
-            "unique" => "true",
             "min" => "0",
             "max" => "0",
           ]);
@@ -79,8 +68,52 @@ DB::table("menu_kolom")->insert([
           ]);
 DB::table("menu_kolom")->insert([
             "menu_id" => $id,
+            "tipe" => "relasi",
+            "nama" => "tingkat_prioritas",
+            "default" => "nama",
+            "coma" => "0",
+            "required" => "true",
+            "unique" => "false",
+            "min" => "0",
+            "max" => "0",
+          ]);
+DB::table("menu_kolom")->insert([
+            "menu_id" => $id,
+            "tipe" => "relasi",
+            "nama" => "kategori_perbaikan",
+            "default" => "nama",
+            "coma" => "0",
+            "required" => "true",
+            "unique" => "false",
+            "min" => "0",
+            "max" => "0",
+          ]);
+DB::table("menu_kolom")->insert([
+            "menu_id" => $id,
             "tipe" => "area",
-            "nama" => "keterangan_layanan",
+            "nama" => "perbaikan",
+            "default" => "",
+            "coma" => "0",
+            "required" => "true",
+            "unique" => "false",
+            "min" => "0",
+            "max" => "0",
+          ]);
+DB::table("menu_kolom")->insert([
+            "menu_id" => $id,
+            "tipe" => "area",
+            "nama" => "alasan",
+            "default" => "",
+            "coma" => "0",
+            "required" => "true",
+            "unique" => "false",
+            "min" => "0",
+            "max" => "0",
+          ]);
+DB::table("menu_kolom")->insert([
+            "menu_id" => $id,
+            "tipe" => "text",
+            "nama" => "status",
             "default" => "",
             "coma" => "0",
             "required" => "true",

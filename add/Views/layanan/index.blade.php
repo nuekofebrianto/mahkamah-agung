@@ -6,9 +6,9 @@
                 <h3 class="h4 m-0">List</h3>
             </div>
             <div class="toolbar-end">
-                <button type="button" class="btn btn-primary btn-xs" id="dataBaru" onclick="openFormBaru()">
+                {{-- <button type="button" class="btn btn-primary btn-xs" id="dataBaru" onclick="openFormBaru()">
                     data baru
-                </button>
+                </button> --}}
             </div>
         </div>
 
@@ -19,13 +19,16 @@
                         <thead>
                             <tr>
                                 <th width="40">no</th>
+                                <td>Status</td>
+                                <td>No Tiket</td>
                                 <td>Kode error</td>
                                 <td>Aplikasi</td>
-                                <td>Tanggal layanan</td>
-                                <td>Nomor layanan</td>
+                                <td>Penjelasan insiden</td>
                                 <td>Satker organisasi</td>
-                                <td>Keterangan layanan</td>
-                                <td>Status layanan</td>
+                                <td>Tingkat prioritas</td>
+                                <td>Kategori perbaikan</td>
+                                <td>Perbaikan</td>
+                                <td>Alasan</td>
                             </tr>
                         </thead>
                         <tbody></tbody>
