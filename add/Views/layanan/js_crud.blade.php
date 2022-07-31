@@ -157,7 +157,9 @@
 
         if ($('[store="kode_error"]').val() == '') {
             $('[store="kode_error"]').addClass('is-invalid')
-            notif('harap isi kode error !','danger')
+            notif('harap isi kode error !', 'danger')
+            $('.loader').hide()
+
             return false;
         }
 
