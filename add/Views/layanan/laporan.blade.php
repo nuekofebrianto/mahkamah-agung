@@ -6,9 +6,9 @@
                 <h3 class="h4 m-0">Laporan</h3>
             </div>
             <div class="toolbar-end">
-                {{-- <button type="button" class="btn btn-primary btn-xs" id="dataBaru" onclick="openFormBaru()">
-                    data baru
-                </button> --}}
+                <button type="button" class="btn btn-secondary btn-sm" onclick="excel()">
+                   Excel
+                </button>
             </div>
         </div>
 

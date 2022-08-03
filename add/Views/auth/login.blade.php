@@ -6,7 +6,7 @@
                 {{-- <h3 class="h4 m-0">List</h3> --}}
             </div>
             <div class="toolbar-end">
-
+                {{-- {{$pesan}} --}}
             </div>
         </div>
 
@@ -45,7 +45,8 @@
                                     <br>
                                     <br>
                                     <div class="text-center">
-                                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="signIn">Sign In</button>
+                                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="signIn">Sign
+                                            In</button>
                                         <br>
                                         <br>
                                         <button class="btn btn-outline-primary btn-lg btn-block" type="button"
@@ -118,66 +119,73 @@
             </div>
         </div>
     </div>
-
- 
 @endsection
 
 @section('js')
-<script>
-    function toLogin() {
-        $('#loginForm').removeClass('undisplay')
-        $('#registerForm').addClass('undisplay')
-    }
-
-    function toRegister() {
-        $('#loginForm').addClass('undisplay')
-        $('#registerForm').removeClass('undisplay')
-        $('[store]').val('')
-        $('[store="role_id"]').val('4')
-    }
-
-    function simpanData() {
-        $('.loader').show()
-
-        postData = {}
-
-        $('[store]').not('[store="id"]').each(function(i, v) {
-            post = $(v).attr('store')
-            data = $(v).val()
-
-            postData[post] = data
-        })
-
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: 'register',
-            method: 'POST',
-            data: postData,
-            success: function(response) {
-                console.log(response)
-                notif('Registrasi berhasil', 'success')
-                $('.loader').hide()
-                toLogin()
-                $('[name="username"]').val(response.username)
-                $('[name="password"]').val(postData.password)
-                $('#signIn').click();
-
-            },
-            error: function(response) {
-                console.log(response)
-                message = ''
-                $('[store]').removeClass('is-invalid')
-                $.each(response.responseJSON.errors, function(i, v) {
-                    message = v[0]
-                    $('[store="' + i + '"]').addClass('is-invalid')
-                })
-                notif(message, 'danger')
-                $('.loader').hide()
-
+    <script>
+        const pesan = '<?php echo json_encode($pesan); ?>';
+        console.log(pesan)
+        $(document).ready(function() {
+            if (pesan != '""') {
+                notif(pesan, 'danger')
             }
+
         })
-    }
-</script>
+
+        function toLogin() {
+            $('#loginForm').removeClass('undisplay')
+            $('#registerForm').addClass('undisplay')
+        }
+
+        function toRegister() {
+            $('#loginForm').addClass('undisplay')
+            $('#registerForm').removeClass('undisplay')
+            $('[store]').val('')
+            $('[store="role_id"]').val('4')
+        }
+
+        function simpanData() {
+            $('.loader').show()
+
+            postData = {}
+
+            $('[store]').not('[store="id"]').each(function(i, v) {
+                post = $(v).attr('store')
+                data = $(v).val()
+
+                postData[post] = data
+            })
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'register',
+                method: 'POST',
+                data: postData,
+                success: function(response) {
+                    console.log(response)
+                    notif('Registrasi berhasil', 'success')
+                    $('.loader').hide()
+                    toLogin()
+                    $('[name="username"]').val(response.username)
+                    $('[name="password"]').val(postData.password)
+                    $('#signIn').click();
+
+                },
+                error: function(response) {
+                    console.log(response)
+                    message = ''
+                    $('[store]').removeClass('is-invalid')
+                    $.each(response.responseJSON.errors, function(i, v) {
+                        message = v[0]
+                        $('[store="' + i + '"]').addClass('is-invalid')
+                    })
+                    notif(message, 'danger')
+                    $('.loader').hide()
+
+                }
+            })
+        }
+    </script>
 @endsection

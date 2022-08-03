@@ -20,7 +20,8 @@ class LoginController extends Controller
         if (Auth::check()){
             return redirect(route('home'));
           }
-        return view('auth.login');
+        $pesan = '';
+        return view('auth.login',compact('pesan'));
     }
 
     public function sign_in(Request $request)
@@ -42,9 +43,9 @@ class LoginController extends Controller
             return redirect('/home');
         }
 
-        return back()->withErrors([
-            'message' => 'The provided credentials do not match our records.',
-        ]);
+        $pesan = 'login gagal';
+        return view('auth.login',compact('pesan'));
+
     }
 
 

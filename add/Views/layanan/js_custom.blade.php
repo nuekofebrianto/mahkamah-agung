@@ -19,8 +19,8 @@
                 '<div class="animated bounceIn rowId" rowId="' + full.id + '">' +
                 '<a class="dropdown-item list-group-item text-primary" href="#" data-id="' + full.id +
                 '" onclick=getData(this)><i class="ti-pencil"></i>detail</a>' +
-                '<a class="dropdown-item list-group-item text-danger" href="#" data-id="' + full.id +
-                '" onclick=hapusData(this)>Hapus</a>' +
+                // '<a class="dropdown-item list-group-item text-danger" href="#" data-id="' + full.id +
+                // '" onclick=hapusData(this)>Hapus</a>' +
                 '</div>';
             return defaultContent;
         }

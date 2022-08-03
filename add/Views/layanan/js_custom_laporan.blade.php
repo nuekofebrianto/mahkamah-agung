@@ -86,5 +86,10 @@
 
     reload(url + "/list")
 
+    function excel(){
+        $('.buttons-excel').click()
+        console.log('excel')
+    }
+
 
 </script>

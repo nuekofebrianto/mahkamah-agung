@@ -203,23 +203,23 @@
                     <br>
                     <div class="form-group">
                         <label for="">Kode Error</label>
-                        <input type="text" class="form-control" hasil="kode_error">
+                        <input type="text" class="form-control" hasil="kode_error" readonly>
                     </div>
                     <br>
 
                     <div class="form-group">
                         <label for="">Penjelasan</label>
-                        <input type="text" class="form-control" hasil="penjelasan">
+                        <input type="text" class="form-control" hasil="penjelasan" readonly>
                     </div>
                     <br>
 
                     <div class="form-group">
                         <label for="">Penyelesaian</label>
-                        <textarea class="form-control" cols="30" rows="10" hasil="penyelesaian"></textarea>
+                        <textarea class="form-control" cols="30" rows="10" hasil="penyelesaian" readonly></textarea>
                     </div>
-                    <div class="text-center " id="statusKodeError">
+                    {{-- <div class="text-center " id="statusKodeError">
                         <span class="badge super-badge fs-5 bg-secondary"></span>
-                    </div>
+                    </div> --}}
                     <br>
                     <div class="text-end">
                         <button class="btn btn-primary btn-sm" onclick="selesai()">Selesai</button>
@@ -234,6 +234,8 @@
 
             <div class="row">
                 <div class="col-md-6 offset-3">
+                    <h5>Pengajuan Insiden</h5>
+                    <br>
                     <input type="text" class="form-control undisplay" store="id">
                     <div class="row">
                        
@@ -397,10 +399,10 @@
                     $('[store="satker_organisasi"]').addClass('is-invalid')
                     ada_error = 1
                 }
-                if (bukti_insiden == '') {
-                    $('[store_file="bukti_insiden"]').addClass('is-invalid')
-                    ada_error = 1
-                }
+                // if (bukti_insiden == '') {
+                //     $('[store_file="bukti_insiden"]').addClass('is-invalid')
+                //     ada_error = 1
+                // }
 
                 if (ada_error == 1) {
                     notif('Lengkapi data !', 'danger')
@@ -456,6 +458,8 @@
                 $('.loader').show()
                 kode_error = $('#kodeError').val()
                 $('#kodeError').removeClass('is-invalid')
+
+                console.log(kode_error)
 
                 if (kode_error == '') {
                     notif('isi inputan kode error !', 'danger')

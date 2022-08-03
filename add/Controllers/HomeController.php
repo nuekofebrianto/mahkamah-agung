@@ -30,7 +30,8 @@ class HomeController extends Controller
       }
     }
 
-    return view('auth.login');
+    $pesan = '';
+    return view('auth.login',compact('pesan'));
   }
 
   public function home()
@@ -113,7 +114,7 @@ class HomeController extends Controller
   public function carikodeerror(Request $request)
   {
 
-    $response = Layanan::where('kode_error', $request->kode_error)->first();
+    $response = Layanan::where('kode_error', $request->kode_error)->where('status','selesai')->first();
 
     return response()->json($response);
   }
