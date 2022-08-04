@@ -58,113 +58,113 @@
                 </div>
             </div>
 
-            @if($data > 0)
-            <div class="row lihat-pengaduan undisplay fs-5">
-                <div class="col-md-8 offset-2">
-                    <div class="row ">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Kode Error</label>
-                                :
-                                <span>{{ $pengajuan->kode_error }}</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="form-group">
-                                <label for="">Aplikasi</label>
-                                :
-                                <span>{{ $pengajuan->aplikasi->nama }}</span>
+            @if ($data > 0)
+                <div class="row lihat-pengaduan undisplay fs-5">
+                    <div class="col-md-8 offset-2">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Kode Error</label>
+                                    :
+                                    <span>{{ $pengajuan->kode_error }}</span>
+                                </div>
                             </div>
 
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="">penjelasan insiden</label>
-                            :
-                            <span>{{ $pengajuan->penjelasan_insiden }}</span>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="">satker organisasi</label>
-                            :
-                            <span>{{ $pengajuan->satker_organisasi }}</span>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="">satker organisasi</label>
-                            :
-                            <span>{{ $pengajuan->satker_organisasi }}</span>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
 
-                            <div class="form-group">
-                                <label for="">Tingkat Prioritas</label>
-                                :
-                                <span>{{ $pengajuan->aplikasi->nama }}</span>
+                                <div class="form-group">
+                                    <label for="">Aplikasi</label>
+                                    :
+                                    <span>{{ $pengajuan->aplikasi->nama }}</span>
+                                </div>
+
                             </div>
-
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="form-group">
-                                <label for="">Kategori perbaikan</label>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">penjelasan insiden</label>
                                 :
-                                <span>{{ $pengajuan->kategori_perbaikan->nama }}</span>
+                                <span>{{ $pengajuan->penjelasan_insiden }}</span>
                             </div>
-
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="form-group">
-                                <label for="">Perbaikan</label>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">satker organisasi</label>
                                 :
-                                <span>{{ $pengajuan->perbaikan }}</span>
+                                <span>{{ $pengajuan->satker_organisasi }}</span>
                             </div>
-
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="form-group">
-                                <label for="">Alasan</label>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">satker organisasi</label>
                                 :
-                                <span>{{ $pengajuan->alasan }}</span>
+                                <span>{{ $pengajuan->satker_organisasi }}</span>
                             </div>
-
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="">Status</label>
-                            :
-                            <span>{{ $pengajuan->status }}</span>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="">Tingkat Prioritas</label>
+                                    :
+                                    <span>{{ $pengajuan->aplikasi->nama }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="">Kategori perbaikan</label>
+                                    :
+                                    <span>{{ $pengajuan->kategori_perbaikan->nama }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="">Perbaikan</label>
+                                    :
+                                    <span>{{ $pengajuan->perbaikan }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="">Alasan</label>
+                                    :
+                                    <span>{{ $pengajuan->alasan }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Status</label>
+                                :
+                                <span>{{ $pengajuan->status }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endif
 
         </div>
@@ -238,7 +238,7 @@
                     <br>
                     <input type="text" class="form-control undisplay" store="id">
                     <div class="row">
-                       
+
                         <div class="col-md-12 m-b-2">
                             <div class="form-group">
                                 <label class="control-label">Aplikasi</label>
@@ -386,7 +386,7 @@
                 $('[store_file]').removeClass('is-invalid')
 
                 ada_error = 0
-              
+
                 if (aplikasi_id == '') {
                     $('[store="aplikasi_id"]').addClass('is-invalid')
                     ada_error = 1
@@ -486,33 +486,14 @@
                             $('.card-inputan-insiden').addClass('undisplay')
                             $('.card-cari-insiden').addClass('undisplay')
                             $('[hasil="kode_error"]').val(response.kode_error)
-                            $('[hasil="penjelasan"]').val(response.penjelasan)
-                            $('[hasil="penyelesaian"]').val(response.penyelesaian)
+                            $('[hasil="penjelasan"]').val(response.penjelasan_insiden)
+                            $('[hasil="penyelesaian"]').val(response.perbaikan)
                             $('#statusKodeError').html(response.status)
 
-                            if (response.status == 'pending') {
-                                $('[hasil="penjelasan"]').parent().addClass('undisplay')
-                                $('[hasil="penyelesaian"]').parent().addClass('undisplay')
-                                $('#statusKodeError').html(`
-                        <span class="badge super-badge fs-5 bg-warning" >` + response.status + `</span>
-                            `)
-                            }
 
-                            if (response.status == 'progress') {
-                                $('[hasil="penjelasan"]').parent().addClass('undisplay')
-                                $('[hasil="penyelesaian"]').parent().addClass('undisplay')
-                                $('#statusKodeError').html(`
-                        <span class="badge super-badge fs-5 bg-primary" >` + response.status + `</span>
-                            `)
-                            }
+                            $('[hasil="penjelasan"]').parent().removeClass('undisplay')
+                            $('[hasil="penyelesaian"]').parent().removeClass('undisplay')
 
-                            if (response.status == 'ok') {
-                                $('[hasil="penjelasan"]').parent().addClass('undisplay')
-                                $('[hasil="penyelesaian"]').parent().addClass('undisplay')
-                                $('#statusKodeError').html(`
-                        <span class="badge super-badge fs-5 bg-secondary" >` + response.status + `</span>
-                            `)
-                            }
 
                         }
 
