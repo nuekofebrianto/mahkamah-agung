@@ -31,7 +31,7 @@ class HomeController extends Controller
     }
 
     $pesan = '';
-    return view('auth.login',compact('pesan'));
+    return view('auth.login', compact('pesan'));
   }
 
   public function home()
@@ -60,7 +60,7 @@ class HomeController extends Controller
     $data = Layanan::where('created_by', $user_id)->whereIn('status', ['diterima', 'diproses', 'ditangani'])->count();
     $pengajuan = Layanan::where('created_by', $user_id)->whereIn('status', ['diterima', 'diproses', 'ditangani'])->first();
 
-    return view('home.home', compact('basicInfo', 'aplikasi', 'tingkat_prioritas', 'kategori_perbaikan', 'pengajuan','data'));
+    return view('home.home', compact('basicInfo', 'aplikasi', 'tingkat_prioritas', 'kategori_perbaikan', 'pengajuan', 'data'));
   }
 
   public function homeAdmin()
@@ -74,7 +74,7 @@ class HomeController extends Controller
     $layananSelesai = Layanan::where('status', 'selesai')->count();
 
 
-    return view('home.homeadmin', compact('basicInfo', 'layanan', 'layananDiterima', 'layananDitangani', 'layananSelesai'));
+    return view('home.homeadmin', compact('basicInfo', 'layanan', 'layananDiterima', 'layananDitangani', 'layananSelesai', 'data'));
   }
 
   public function homeManajer()
@@ -82,15 +82,32 @@ class HomeController extends Controller
 
     $basicInfo = getBasicInfo('/home');
 
+
+    $layananMonth = array();
+    $layananDiterimaMonth = array();
+    $layananDitanganiMonth = array();
+    $layananSelesaiMonth = array();
+
+    $months = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12');
+    foreach ($months as $month) {
+      $layanan = Layanan::whereMonth('created_at', $month)->count();
+      $layananDiterima = Layanan::whereMonth('created_at', $month)->where('status', 'diterima')->count();
+      $layananDitangani = Layanan::whereMonth('created_at', $month)->where('status', 'ditangani')->count();
+      $layananSelesai = Layanan::whereMonth('created_at', $month)->where('status', 'selesai')->count();
+
+      array_push($layananMonth, $layanan);
+      array_push($layananDiterimaMonth, $layananDiterima);
+      array_push($layananDitanganiMonth, $layananDitangani);
+      array_push($layananSelesaiMonth, $layananSelesai);
+    }
+
     $layanan = Layanan::count();
     $layananDiterima = Layanan::where('status', 'diterima')->count();
     $layananDitangani = Layanan::where('status', 'ditangani')->count();
     $layananSelesai = Layanan::where('status', 'selesai')->count();
     $data = Layanan::get();
 
-
-
-    return view('home.homemanajer', compact('basicInfo', 'layanan', 'layananDiterima', 'layananDitangani', 'layananSelesai', 'data'));
+    return view('home.homemanajer', compact('basicInfo', 'layanan', 'layananDiterima', 'layananDitangani', 'layananSelesai', 'layananMonth', 'layananDiterimaMonth', 'layananDitanganiMonth', 'layananSelesaiMonth'));
   }
 
   public function sidebar()
@@ -114,7 +131,7 @@ class HomeController extends Controller
   public function carikodeerror(Request $request)
   {
 
-    $response = Layanan::where('kode_error', $request->kode_error)->where('status','selesai')->first();
+    $response = Layanan::where('kode_error', $request->kode_error)->where('status', 'selesai')->first();
 
     return response()->json($response);
   }

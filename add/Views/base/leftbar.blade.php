@@ -41,7 +41,7 @@
                     <li class="nav-item side-list">
                         <a href="/layanan" url="/layanan" class="nav-link mininav-toggle ">
                             <i class="ti-announcement fs-5 me-2"></i>
-                            <span class="nav-label mininav-content ms-1">layanan</span>
+                            <span class="nav-label mininav-content ms-1">Respon Layanan Insiden</span>
                         </a>
                     </li>
                     <li class="nav-item side-list">

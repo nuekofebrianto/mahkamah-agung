@@ -19,6 +19,7 @@
                         <thead>
                             <tr>
                                 <th width="40">no</th>
+                                <td>Tanggal</td>
                                 <td>Status</td>
                                 <td>No Tiket</td>
                                 <td>Kode error</td>

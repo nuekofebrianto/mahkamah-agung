@@ -5,7 +5,7 @@
         },
         {
             url: "/layanan",
-            nama: "Layanan"
+            nama: "Respon Layanan Insiden"
         }
     ]
     var dataColum = [{
@@ -25,6 +25,12 @@
             return defaultContent;
         }
     }];
+    dataColum.push({
+        id: null,
+        'render': function(data, type, full, meta) {
+            return moment(full.created_at).format('DD MMM yyyy');
+        }
+    });
     dataColum.push({
         id: null,
         label: 'no',

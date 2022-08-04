@@ -100,21 +100,14 @@
                             </div>
                         </div>
                         <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">satker organisasi</label>
-                                :
-                                <span>{{ $pengajuan->satker_organisasi }}</span>
-                            </div>
-                        </div>
-                        <br>
+                        
                         <div class="row">
                             <div class="col-md-12">
 
                                 <div class="form-group">
                                     <label for="">Tingkat Prioritas</label>
                                     :
-                                    <span>{{ $pengajuan->aplikasi->nama }}</span>
+                                    <span>{{ $pengajuan->tingkat_prioritas->nama }}</span>
                                 </div>
 
                             </div>
