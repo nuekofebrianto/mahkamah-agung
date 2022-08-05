@@ -72,6 +72,7 @@ class HomeController extends Controller
     $layananDiterima = Layanan::where('status', 'diterima')->count();
     $layananDitangani = Layanan::where('status', 'ditangani')->count();
     $layananSelesai = Layanan::where('status', 'selesai')->count();
+    $data = Layanan::get();
 
 
     return view('home.homeadmin', compact('basicInfo', 'layanan', 'layananDiterima', 'layananDitangani', 'layananSelesai', 'data'));
