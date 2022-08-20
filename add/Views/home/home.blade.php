@@ -60,7 +60,8 @@
 
             @if ($data > 0)
                 <div class="row lihat-pengaduan undisplay fs-5">
-                    <div class="col-md-8 offset-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -156,6 +157,9 @@
                                 <span>{{ $pengajuan->status }}</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ asset('/upload/bukti_perbaikan')}}/{{$pengajuan->id}}.jpg" alt="" height="125" width="125">
                     </div>
                 </div>
             @endif

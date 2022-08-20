@@ -66,8 +66,21 @@ class LayananController extends Controller
 			->with('aplikasi')
 			->with('tingkat_prioritas')
 			->with('kategori_perbaikan')
+			->where('created_at', '>=', $request['periodeAwal'])
+			->where('created_at', '<=', $request['periodeAkhir'])
 			->get();
+
 		return DataTables()->of($list)->make(true);
+	}
+
+	public function dataLaporan(Request $request)
+	{
+
+		$response['layanan'] = Layanan::where('created_at', '>=', $request['periodeAwal'])->where('created_at', '<=', $request['periodeAkhir'])->count();
+		$response['layananDiterima'] = Layanan::where('created_at', '>=', $request['periodeAwal'])->where('created_at', '<=', $request['periodeAkhir'])->where('status', 'diterima')->count();
+		$response['layananDitangani'] = Layanan::where('created_at', '>=', $request['periodeAwal'])->where('created_at', '<=', $request['periodeAkhir'])->where('status', 'ditangani')->count();
+		$response['layananSelesai'] = Layanan::where('created_at', '>=', $request['periodeAwal'])->where('created_at', '<=', $request['periodeAkhir'])->where('status', 'selesai')->count();
+		return response()->json($response);
 	}
 
 	public function store(LayananRequest $request)
@@ -139,7 +152,7 @@ class LayananController extends Controller
 
 	public function selesaiInsiden(Request $request)
 	{
-		$datas = Layanan::where("id", $request->id)->update(['status'=>'selesai']);
+		$datas = Layanan::where("id", $request->id)->update(['status' => 'selesai']);
 
 		return response()->json($datas);
 	}

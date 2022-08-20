@@ -54,6 +54,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('/layanan', 'LayananController');
     Route::post('/layanan/list', 'LayananController@list');
+    Route::post('/layanan/listlaporan', 'LayananController@listLaporan');
+    Route::post('/layanan/datalaporan', 'LayananController@dataLaporan');
+    
     Route::post('/layanan/getdata', 'LayananController@getData');
     Route::post('/uploadbuktiinsiden', 'LayananController@uploadBuktiInsiden');
     Route::post('/uploadbuktiperbaikan', 'LayananController@uploadBuktiperbaikan');
