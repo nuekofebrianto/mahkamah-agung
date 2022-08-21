@@ -130,7 +130,14 @@
 
                 var dataColor = ['rgb(223,86,69)', 'rgb(250,159,27)', 'rgb(34,122,210)', 'rgb(38,166,154)'];
 
+                $('#myChart').remove()
+
+                $('.canvas-container').append(`
+                <canvas id="myChart" class="text-center"></canvas>
+                `)
+
                 var ctx = document.getElementById('myChart').getContext('2d');
+
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
@@ -181,6 +188,8 @@
 
             }
         })
+        $('.loader').hide()
+
     }
 
     function tampilkanGrafik(){
