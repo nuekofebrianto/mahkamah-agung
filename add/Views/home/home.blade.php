@@ -159,7 +159,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="{{ asset('/upload/bukti_perbaikan')}}/{{$pengajuan->id}}.jpg" alt="" height="125" width="125">
+                        <img src="{{ asset('/upload/bukti_perbaikan')}}/{{$pengajuan->id}}.jpg" alt="" >
                     </div>
                 </div>
             @endif
